@@ -25,13 +25,17 @@ def is_valid_choice(choice: str, allowed: list[str]) -> bool:
 	return choice in allowed
 
 
-def read_mcp_config_text() -> str:
+def read_text(relative_path: str) -> str:
 	try:
-		config_path = os.path.join(app.root_path, ".vscode", "mcp.json")
-		with open(config_path, "r", encoding="utf-8") as file_handle:
+		absolute_path = os.path.join(app.root_path, relative_path)
+		with open(absolute_path, "r", encoding="utf-8") as file_handle:
 			return file_handle.read()
 	except Exception:
 		return ""
+
+
+def read_mcp_config_text() -> str:
+	return read_text(os.path.join(".vscode", "mcp.json"))
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -68,6 +72,8 @@ def index():
 			ide=ide,
 			policies=policies,
 			mcp_config_text=read_mcp_config_text(),
+			rules_sast=read_text(os.path.join("rules", "01-SAST_scan")),
+			rules_sca=read_text(os.path.join("rules", "02-SCA_scan")),
 		)
 
 	return render_template(
@@ -80,5 +86,4 @@ def index():
 
 
 if __name__ == "__main__":
-	port = int(os.environ.get("PORT", 5000))
-	app.run(host="0.0.0.0", port=port, debug=False)
+	app.run(host="0.0.0.0", port=5000, debug=False)

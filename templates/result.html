@@ -30,6 +30,28 @@
           <pre style="white-space: pre-wrap; word-wrap: break-word; margin: 0;"><code>{{ mcp_config_text }}</code></pre>
         </div>
 
+        <h2 style="margin-top: 20px;">MCP rules to be added</h2>
+        <div class="summary" style="padding: 0;">
+          <table style="width: 100%; border-collapse: collapse;">
+            <thead>
+              <tr>
+                <th style="text-align: left; padding: 12px; border-bottom: 1px solid var(--border);">Rule</th>
+                <th style="text-align: left; padding: 12px; border-bottom: 1px solid var(--border);">Content</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="vertical-align: top; padding: 12px; width: 30%;"><code>rules/01-SAST_scan</code></td>
+                <td style="vertical-align: top; padding: 12px;"><pre style="white-space: pre-wrap; word-wrap: break-word; margin: 0;">{{ rules_sast }}</pre></td>
+              </tr>
+              <tr>
+                <td style="vertical-align: top; padding: 12px; width: 30%;"><code>rules/02-SCA_scan</code></td>
+                <td style="vertical-align: top; padding: 12px;"><pre style="white-space: pre-wrap; word-wrap: break-word; margin: 0;">{{ rules_sca }}</pre></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
         <div class="actions">
           <a class="muted-link" href="/">Back to form</a>
           <a class="button" href="{{ url_for('static', filename='download.bin') }}" download>Download Binary</a>
