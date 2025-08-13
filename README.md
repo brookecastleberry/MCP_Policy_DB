@@ -44,17 +44,16 @@ source .venv/bin/activate
 ```bash
 pip install -r requirements.txt
 ```
-### 4a) Run directly (defaults to port 
-5000)
+### 4a) Run directly (defaults to port 8081)     
 ```bash
 python app.py
-# Open http://127.0.0.1:5000
+# Open http://127.0.0.1:8081
 ```
 
-### 4b) If port 5000 is in use, run via Flask CLI on an alternate port
+### 4b) If port 8081 is in use, run via Flask CLI on an alternate port
+Edit env.config
 ```bash
-FLASK_APP=app:app FLASK_RUN_HOST=127.0.0.1 FLASK_RUN_PORT=5050 flask run
-# Open http://127.0.0.1:5050
+PORT=8080
 ```
 
 ## Using the app
