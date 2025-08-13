@@ -4,11 +4,16 @@
 
 echo "Starting Flask app..."
 
-# Check if virtual environment exists and activate it if it does
-if [ -d "venv" ]; then
-    echo "Activating virtual environment..."
-    source venv/bin/activate
+# Check if virtual environment exists, create it if it doesn't
+if [ ! -d "venv" ]; then
+    echo "Virtual environment not found. Creating new virtual environment..."
+    python3 -m venv venv
+    echo "Virtual environment created successfully."
 fi
+
+# Activate virtual environment
+echo "Activating virtual environment..."
+source venv/bin/activate
 
 # Install dependencies if needed
 echo "Checking dependencies..."
