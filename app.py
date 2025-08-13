@@ -12,6 +12,7 @@ OPERATING_SYSTEM_OPTIONS = [
 ]
 
 IDE_OPTIONS = [
+	"vscode",
 	"windsurf",
 	"cursor",
 ]

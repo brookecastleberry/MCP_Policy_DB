@@ -16,5 +16,4 @@ instance/
 *.log
 
 # IDEs
-.vscode/
 .idea/ 
