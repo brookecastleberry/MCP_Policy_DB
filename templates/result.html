@@ -10,8 +10,10 @@
     <div class="container">
       <header class="header">
         <div class="brand">
-          <div class="brand-badge" aria-hidden="true"></div>
-          <div class="brand-title">Snyk-styled Form</div>
+          <div class="brand-logo">
+            <img src="{{ url_for('static', filename='doberman-logo.png') }}" alt="Doberman Logo" width="60" height="60">
+          </div>
+          <div class="brand-title">MCP Policy Database</div>
         </div>
       </header>
 
@@ -27,6 +29,17 @@
 
         <h2 style="margin-top: 20px;">MCP config to be included</h2>
         <div class="summary">
+          <p><strong>File:</strong> 
+            {% if ide == "vscode" %}
+              <code>.vscode/mcp.json</code>
+            {% elif ide == "cursor" %}
+              <code>.cursor/mcp.json</code>
+            {% elif ide == "windsurf" %}
+              <code>.windsurf/mcp.json</code>
+            {% else %}
+              <code>mcp.json</code>
+            {% endif %}
+          </p>
           <pre style="white-space: pre-wrap; word-wrap: break-word; margin: 0;"><code>{{ mcp_config_text }}</code></pre>
         </div>
 

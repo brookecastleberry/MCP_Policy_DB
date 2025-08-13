@@ -37,8 +37,15 @@ def read_text(relative_path: str) -> str:
 		return ""
 
 
-def read_mcp_config_text() -> str:
-	return read_text(os.path.join(".vscode", "mcp.json"))
+def read_mcp_config_text(ide: str) -> str:
+	if ide == "vscode":
+		return read_text(os.path.join("vscode-config", "vscode-mcp.json"))
+	elif ide == "cursor":
+		return read_text(os.path.join("cursor-config", "cursor-mcp.json"))
+	elif ide == "windsurf":
+		return read_text(os.path.join("windsurf-config", "windsurf-mcp.json"))
+	else:
+		return read_text(os.path.join("vscode-config", "vscode-mcp.json"))  # Default fallback
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -74,7 +81,7 @@ def index():
 			operating_system=operating_system,
 			ide=ide,
 			policies=policies,
-			mcp_config_text=read_mcp_config_text(),
+			mcp_config_text=read_mcp_config_text(ide),
 			rules_sast=read_text(os.path.join("rules", "01-SAST_scan")),
 			rules_sca=read_text(os.path.join("rules", "02-SCA_scan")),
 		)
