@@ -45,6 +45,23 @@ body {
   background: linear-gradient(135deg, var(--snyk-indigo), var(--snyk-teal));
 }
 
+.brand-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-logo img {
+  width: 60px;
+  height: 60px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  transition: transform 0.2s ease;
+}
+
+.brand-logo img:hover {
+  transform: scale(1.05);
+}
+
 .brand-title {
   font-weight: 700;
   letter-spacing: 0.2px;
