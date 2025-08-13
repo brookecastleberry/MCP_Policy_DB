@@ -1,0 +1,13 @@
+{
+	"servers": {
+		"snyk-mcp-server": {
+			"type": "stdio",
+			"command": "snyk",
+			"args": [
+				"mcp",
+				"--experimental"
+			]
+		}
+	},
+	"inputs": []
+}
