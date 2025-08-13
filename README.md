@@ -17,7 +17,12 @@ It validates inputs and shows a styled summary page. The UI is inspired by Snykâ
 
 ### 1) Run the start script
 ```bash
+git clone git@github.com:brookecastleberry/MCP_Policy_DB.git
+```
+```bash
 chmod +x start_app.sh
+```
+```bash
 ./start_app.sh
 ```
 
