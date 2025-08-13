@@ -1,5 +1,9 @@
 import os
 from flask import Flask, render_template, request, redirect, url_for
+from dotenv import load_dotenv
+
+# Load environment variables from env.config file
+load_dotenv('env.config')
 
 
 app = Flask(__name__)

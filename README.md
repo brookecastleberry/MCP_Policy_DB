@@ -15,22 +15,39 @@ It validates inputs and shows a styled summary page. The UI is inspired by Snykâ
 
 ## Quick start
 
+### 1) Run the start script
 ```bash
-# 1) Clone the repo (or use your existing working directory)
-cd hackathon
+chmod +x start_app.sh
+./start_app.sh
+```
 
-# 2) Create a virtual environment
+## Detailed Setup
+
+### 1) Clone the repo and cd into it
+```bash
+git clone git@github.com:brookecastleberry/MCP_Policy_DB.git
+```
+```
+cd MCP_Policy_DB
+```
+### 2) Create a virtual environment
+```bash
 python3 -m venv .venv
 source .venv/bin/activate
-
-# 3) Install dependencies
+```
+###3) Install dependencies
+```bash
 pip install -r requirements.txt
-
-# 4a) Run directly (defaults to port 5000)
+```
+### 4a) Run directly (defaults to port 
+5000)
+```bash
 python app.py
 # Open http://127.0.0.1:5000
+```
 
-# 4b) If port 5000 is in use, run via Flask CLI on an alternate port
+### 4b) If port 5000 is in use, run via Flask CLI on an alternate port
+```bash
 FLASK_APP=app:app FLASK_RUN_HOST=127.0.0.1 FLASK_RUN_PORT=5050 flask run
 # Open http://127.0.0.1:5050
 ```
@@ -41,6 +58,10 @@ FLASK_APP=app:app FLASK_RUN_HOST=127.0.0.1 FLASK_RUN_PORT=5050 flask run
 2) Select your operating system and IDE
 3) Describe the policy types you need (e.g., access control, data retention)
 4) Submit to view a formatted summary
+
+## Killing the app
+
+Press CTRL+C in the running terminal
 
 ## Security notes
 
