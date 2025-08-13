@@ -1,5 +1,6 @@
 import os
 from flask import Flask, render_template, request, redirect, url_for
+import os
 
 
 app = Flask(__name__)
@@ -22,6 +23,15 @@ def is_valid_choice(choice: str, allowed: list[str]) -> bool:
 	if choice is None:
 		return False
 	return choice in allowed
+
+
+def read_mcp_config_text() -> str:
+	try:
+		config_path = os.path.join(app.root_path, ".vscode", "mcp.json")
+		with open(config_path, "r", encoding="utf-8") as file_handle:
+			return file_handle.read()
+	except Exception:
+		return ""
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -57,6 +67,7 @@ def index():
 			operating_system=operating_system,
 			ide=ide,
 			policies=policies,
+			mcp_config_text=read_mcp_config_text(),
 		)
 
 	return render_template(

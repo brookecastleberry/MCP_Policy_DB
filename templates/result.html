@@ -24,6 +24,12 @@
           <p><strong>Policy Types:</strong></p>
           <pre style="white-space: pre-wrap; word-wrap: break-word;">{{ policies }}</pre>
         </div>
+
+        <h2 style="margin-top: 20px;">MCP config to be included</h2>
+        <div class="summary">
+          <pre style="white-space: pre-wrap; word-wrap: break-word; margin: 0;"><code>{{ mcp_config_text }}</code></pre>
+        </div>
+
         <div class="actions">
           <a class="muted-link" href="/">Back to form</a>
           <a class="button" href="{{ url_for('static', filename='download.bin') }}" download>Download Binary</a>
