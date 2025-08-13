@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyc
+
+# Environments
+.venv/
+venv/
+.env
+
+# macOS
+.DS_Store
+
+# Flask / local
+instance/
+*.log
+
+# IDEs
+.vscode/
+.idea/ 

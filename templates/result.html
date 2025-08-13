@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Submission Received</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='snyk.css') }}">
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="brand">
+          <div class="brand-badge" aria-hidden="true"></div>
+          <div class="brand-title">Snyk-styled Form</div>
+        </div>
+      </header>
+
+      <div class="card">
+        <h1>Thanks! Here is what you submitted:</h1>
+        <p class="subtitle">You can go back and make changes if needed.</p>
+        <div class="summary">
+          <p><strong>Operating System:</strong> {{ operating_system }}</p>
+          <p><strong>IDE:</strong> {{ ide }}</p>
+          <p><strong>Policy Types:</strong></p>
+          <pre style="white-space: pre-wrap; word-wrap: break-word;">{{ policies }}</pre>
+        </div>
+        <div class="actions">
+          <a class="muted-link" href="/">Back to form</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html> 

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Environment & Policy Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='snyk.css') }}">
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="brand">
+          <div class="brand-badge" aria-hidden="true"></div>
+          <div class="brand-title">Snyk-styled Form</div>
+        </div>
+      </header>
+
+      <div class="card">
+        <h1>Tell us about your setup</h1>
+        <p class="subtitle">We will tailor the policy recommendations based on your environment.</p>
+
+        <form method="post" action="/">
+          <div class="form-grid">
+            <div class="field">
+              <label for="operating_system">What operating system are you using?</label>
+              <select id="operating_system" name="operating_system" class="select" required>
+                <option value="" disabled {% if not form_data.operating_system %}selected{% endif %}>Select an operating system</option>
+                {% for os in operating_system_options %}
+                  <option value="{{ os }}" {% if form_data.operating_system == os %}selected{% endif %}>{{ os }}</option>
+                {% endfor %}
+              </select>
+              {% if errors.operating_system %}
+                <div class="error">{{ errors.operating_system }}</div>
+              {% endif %}
+            </div>
+
+            <div class="field">
+              <label for="ide">What IDE are you using?</label>
+              <select id="ide" name="ide" class="select" required>
+                <option value="" disabled {% if not form_data.ide %}selected{% endif %}>Select an IDE</option>
+                {% for option in ide_options %}
+                  <option value="{{ option }}" {% if form_data.ide == option %}selected{% endif %}>{{ option }}</option>
+                {% endfor %}
+              </select>
+              {% if errors.ide %}
+                <div class="error">{{ errors.ide }}</div>
+              {% endif %}
+            </div>
+
+            <div class="field field--full">
+              <label for="policies">Describe the types of policies you need</label>
+              <div class="hint">For example: access control, data retention, incident response, encryption standards.</div>
+              <textarea id="policies" name="policies" class="textarea" rows="6" required>{{ form_data.policies }}</textarea>
+              {% if errors.policies %}
+                <div class="error">{{ errors.policies }}</div>
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="actions">
+            <button type="submit" class="button">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html> 
